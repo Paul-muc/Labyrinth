@@ -1,6 +1,5 @@
 package edu.hm.labyrinth;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 public class Player {

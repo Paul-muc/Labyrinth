@@ -4,16 +4,20 @@ import java.util.ArrayList;
 
 public class Field implements Comparable<Field> {
 
-	public final ArrayList<Integer> row = new ArrayList<Integer>();
-	public final ArrayList<Integer> column = new ArrayList<Integer>();
+//	public static final ArrayList<Integer> row = new ArrayList<Integer>();
+//	public static final ArrayList<Integer> column = new ArrayList<Integer>();
+	public final int row;
+	public final int column;
 	public MagicItem magicItem;
 	public Player player;
 	public Tile tile;
 
 	public Field(Tile tile) {
 		this.setTile(tile);
-		this.row.add(-1);
-		this.column.add(-1);
+//		Field.row.add(-1);
+//		Field.column.add(-1);
+		this.row = -1;
+		this.column = -1;
 		this.setPlayer(null);
 		this.setMagicItem(null);
 
@@ -21,8 +25,10 @@ public class Field implements Comparable<Field> {
 
 	public Field(Tile tile, int row, int column) {
 		setTile(tile);
-		this.row.add(row);
-		this.column.add(column);
+//		Field.row.add(row);
+//		Field.column.add(column);
+		this.row = row;
+		this.column = column;
 		this.setPlayer(null);
 		this.setMagicItem(null);
 	}
@@ -60,14 +66,14 @@ public class Field implements Comparable<Field> {
 	/**
 	 * @return the row
 	 */
-	public ArrayList<Integer> getRow() {
+	public int getRow() {	//ArrayList<Integer>
 		return row;
 	}
 
 	/**
 	 * @return the column
 	 */
-	public ArrayList<Integer> getColumn() {
+	public int getColumn() {	//ArrayList<Integer>
 		return column;
 	}
 
