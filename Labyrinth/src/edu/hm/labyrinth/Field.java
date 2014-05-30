@@ -1,32 +1,19 @@
 package edu.hm.labyrinth;
 
-import java.util.ArrayList;
-
 public class Field implements Comparable<Field> {
 
-//	public static final ArrayList<Integer> row = new ArrayList<Integer>();
-//	public static final ArrayList<Integer> column = new ArrayList<Integer>();
-	public final int row;
-	public final int column;
-	public MagicItem magicItem;
-	public Player player;
-	public Tile tile;
+	private final int row;
+	private final int column;
+	private MagicItem magicItem;
+	private Player player;
+	private Tile tile;
 
 	public Field(Tile tile) {
-		this.setTile(tile);
-//		Field.row.add(-1);
-//		Field.column.add(-1);
-		this.row = -1;
-		this.column = -1;
-		this.setPlayer(null);
-		this.setMagicItem(null);
-
+		this(tile, -1, -1);
 	}
 
 	public Field(Tile tile, int row, int column) {
 		setTile(tile);
-//		Field.row.add(row);
-//		Field.column.add(column);
 		this.row = row;
 		this.column = column;
 		this.setPlayer(null);
@@ -37,7 +24,7 @@ public class Field implements Comparable<Field> {
 	 * @return the player
 	 */
 	public Player getPlayer() {
-		return player;
+		return this.player;
 	}
 
 	/**
@@ -52,7 +39,7 @@ public class Field implements Comparable<Field> {
 	 * @return the tile
 	 */
 	public Tile getTile() {
-		return tile;
+		return this.tile;
 	}
 
 	/**
@@ -66,22 +53,22 @@ public class Field implements Comparable<Field> {
 	/**
 	 * @return the row
 	 */
-	public int getRow() {	//ArrayList<Integer>
-		return row;
+	public int getRow() {
+		return this.row;
 	}
 
 	/**
 	 * @return the column
 	 */
-	public int getColumn() {	//ArrayList<Integer>
-		return column;
+	public int getColumn() {
+		return this.column;
 	}
 
 	/**
 	 * @return the magicItem
 	 */
 	public MagicItem getMagicItem() {
-		return magicItem;
+		return this.magicItem;
 	}
 
 	/**
@@ -95,17 +82,21 @@ public class Field implements Comparable<Field> {
 	@Override
 	public int compareTo(Field field) {
 		MagicItem other = field.getMagicItem();
-
+		
+		//this is null
 		if (this.getMagicItem() == null) {
 			if (other == null) {
 				return 0;
 			} else {
 				return -1;
 			}
+			//other is null and this is not null
 		} else if (other == null) {
 			return 1;
+			//this is lower 
 		} else if (this.getMagicItem().getValue() < other.getValue()) {
 			return -1;
+			//other is lower
 		} else if (this.getMagicItem().getValue() > other.getValue()) {
 			return 1;
 		}

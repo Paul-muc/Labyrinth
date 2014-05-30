@@ -10,7 +10,7 @@ public class MagicItem {
 		} else if (value > 0 && value < 21) {
 			this.value = value;
 		} else
-			this.value = 0;
+			throw new NullPointerException("Falscher Wert für das magic item.");
 	}
 
 	/**

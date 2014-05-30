@@ -1,13 +1,10 @@
 package edu.hm.labyrinth;
 
-public enum Direction
-{
+public enum Direction {
 	NORTH, EAST, SOUTH, WEST;
 
-	public Direction getOppositeDirection()
-	{
-		switch (this)
-		{
+	public Direction getOppositeDirection() {
+		switch (this) {
 		case NORTH:
 			return SOUTH;
 		case SOUTH:
@@ -20,5 +17,4 @@ public enum Direction
 			return null;
 		}
 	}
-	
 }

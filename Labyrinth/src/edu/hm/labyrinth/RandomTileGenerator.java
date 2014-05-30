@@ -4,15 +4,28 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @author Paul
+ *
+ */
 public class RandomTileGenerator implements TileGenerator {
 
+	/**
+	 * 
+	 */
 	List<Tile> tiles = new ArrayList<Tile>();
 
+	/**
+	 * 
+	 */
 	public RandomTileGenerator() {
 		this.tiles = createTieles();
 		Collections.shuffle(tiles);
 	}
 
+	/* (non-Javadoc)
+	 * @see edu.hm.labyrinth.TileGenerator#createTieles()
+	 */
 	@Override
 	public List<Tile> createTieles() {
 		int numberOfTris = 5;

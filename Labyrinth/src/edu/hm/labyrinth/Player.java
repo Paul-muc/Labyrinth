@@ -7,6 +7,7 @@ public class Player {
 	private final Color color;
 	private int magicWands;
 	private ArrayList<MagicItem> magicItems = new ArrayList<MagicItem>();
+	private final int magicWandValue = 3;
 
 	public Player(Color color) {
 		this.color = color;
@@ -45,11 +46,13 @@ public class Player {
 		for (MagicItem y : magicItems) {
 			score += y.getValue();
 		}
-		score += getMagicWands() * 2;
+		score += getMagicWands() * magicWandValue;
 		return score;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
