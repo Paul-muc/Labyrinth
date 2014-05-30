@@ -15,6 +15,6 @@ public interface TileGenerator {
 	/**
 	 * @return
 	 */
-	public List<Tile> createTieles();
+	public List<Tile> createTiles();
 
 }

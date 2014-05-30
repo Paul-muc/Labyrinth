@@ -19,7 +19,7 @@ public class RandomTileGenerator implements TileGenerator {
 	 * 
 	 */
 	public RandomTileGenerator() {
-		this.tiles = createTieles();
+		this.tiles = createTiles();
 		Collections.shuffle(tiles);
 	}
 
@@ -27,7 +27,7 @@ public class RandomTileGenerator implements TileGenerator {
 	 * @see edu.hm.labyrinth.TileGenerator#createTieles()
 	 */
 	@Override
-	public List<Tile> createTieles() {
+	public List<Tile> createTiles() {
 		int numberOfTris = 5;
 		int numberOfStraights = 13;
 		int numberOfNooks = 16;

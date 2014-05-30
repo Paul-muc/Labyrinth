@@ -23,6 +23,22 @@ public class MainTest
 		Tile tri = new Tri();
 		Tile straight = new Straight();
 		Tile nook = new Nook();
+		
+//		tri.randomlyRotate();
+//		tri.randomlyRotate();
+//		tri.randomlyRotate();
+//		tri.randomlyRotate();
+//		tri.randomlyRotate();
+//		tri.randomlyRotate();
+//		tri.randomlyRotate();
+//		tri.randomlyRotate();
+//		tri.randomlyRotate();
+//		tri.randomlyRotate();
+//		tri.randomlyRotate();
+//		tri.randomlyRotate();
+//		tri.randomlyRotate();
+		
+		
 //		System.out.println(blubb.toString());
 //		System.out.println();
 //		blubb.rotateClockwise();
@@ -33,15 +49,20 @@ public class MainTest
 //		System.out.println(blubb.toString());
 //		MagicItem bla = new MagicItem(2);
 //		System.out.println(bla.toString());
+	
 		MagicItem m1 = new MagicItem(25);
 		MagicItem m2 = new MagicItem(1);
 		MagicItem m3 = new MagicItem(2);
+		
 		Field field1 = new Field(nook, 1, 1);
 		field1.setMagicItem(m3);
+		
 		Field field2 = new Field(straight, 1, 2);
 		field2.setMagicItem(m2);
+		
 		Field field3 = new Field(tri, 2, 1);
 		field3.setMagicItem(m1);
+		
 		Field field4 = new Field(straight, 2, 2);
 		
 		ArrayList<Field> field = new ArrayList<Field>();

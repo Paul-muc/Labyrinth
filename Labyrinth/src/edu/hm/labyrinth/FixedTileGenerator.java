@@ -18,14 +18,14 @@ public class FixedTileGenerator implements TileGenerator{
 	 * 
 	 */
 	public FixedTileGenerator() {
-		this.tiles = createTieles();
+		this.tiles = createTiles();
 	}
 	
 	/* (non-Javadoc)
 	 * @see edu.hm.labyrinth.TileGenerator#createTieles()
 	 */
 	@Override
-	public List<Tile> createTieles() {
+	public List<Tile> createTiles() {
 
 		for(int i = 1; i<=TileGenerator.NUMBER_OF_TILES; i++){
 			Tile tri = new Tri();

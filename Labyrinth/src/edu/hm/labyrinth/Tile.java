@@ -52,7 +52,6 @@ public abstract class Tile {
 	public void randomlyRotate() {
 		Random rnd = new Random();
 		int randomNumber = rnd.nextInt(4);
-
 		for (int i = randomNumber; i != 0; i--) {
 			this.rotateClockwise();
 		}
