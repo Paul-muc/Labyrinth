@@ -37,5 +37,7 @@ public class DirectionTest {
 		for(int i=0; i<values.length; i++){
 			assertEquals(values[i], directions[i]);
 		}
+		
+		assertArrayEquals(values, Direction.values());
 	}
 }

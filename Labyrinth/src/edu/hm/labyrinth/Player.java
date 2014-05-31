@@ -7,7 +7,7 @@ public class Player {
 	private final Color color;
 	private int magicWands;
 	private ArrayList<MagicItem> magicItems = new ArrayList<MagicItem>();
-	private final int magicWandValue = 3;
+	private final int magicWandValue = 2;
 
 	public Player(Color color) {
 		this.color = color;

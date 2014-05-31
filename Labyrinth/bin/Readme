@@ -1,0 +1,12 @@
+Field:
+
+-setPlayer()
+Es darf nur ein Player auf dem Feld sein => ich muss erst schaun ob Player == null bevor
+ich ihn setzen kann? 
+(oder ist das schon abgearbeitet, durch die Tatsache, dass es nur einen Player gibt)
+
+TileGeneratorTest:
+
+Wie soll dort getestet weren?
+
+anzahl == 34; 
