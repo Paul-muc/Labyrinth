@@ -5,18 +5,20 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @author Paul
+ * Represents the random tile generator with an ArrayList of tiles.
+ * 
+ * @author Paul Seer
  *
  */
 public class RandomTileGenerator implements TileGenerator {
 
 	/**
-	 * 
+	 * A ArrayList of tiles.
 	 */
 	List<Tile> tiles = new ArrayList<Tile>();
 
 	/**
-	 * 
+	 * Constructs a random ArrayList of tiles.
 	 */
 	public RandomTileGenerator() {
 		this.tiles = createTiles();

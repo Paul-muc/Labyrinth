@@ -1,9 +1,23 @@
 package edu.hm.labyrinth;
+
+/**
+ * Represents a magic item with value.
+ * 
+ * @author Paul Seer
+ * 
+ */
 public class MagicItem {
-
-
+	/**
+	 * value of the magic item as an Integer.
+	 */
 	private final int value;
 
+	/**
+	 * Constructs a magic item.
+	 * 
+	 * @param value
+	 *            of the magic item. It's value should be between 1 and 20 or 25.
+	 */
 	public MagicItem(int value) {
 		if (value == 25) {
 			this.value = value;
@@ -19,8 +33,10 @@ public class MagicItem {
 	public int getValue() {
 		return value;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

@@ -5,11 +5,25 @@ import java.util.Random;
 
 import edu.hm.labyrinth.Direction;
 
+/**
+ * Represents an abstract Tile with an ArrayList of directions.
+ * 
+ * @author Paul Seer
+ * 
+ */
 public abstract class Tile {
 
+	/**
+	 * The ArrayList of directions.
+	 */
 	ArrayList<Direction> directions = new ArrayList<Direction>();
-	
 
+	/**
+	 * Constructs a list, containing directions.
+	 * 
+	 * @param directions
+	 *            is an array of directions
+	 */
 	protected Tile(Direction... directions) {
 		for (int i = 0; i < directions.length; i++) {
 			this.directions.add(directions[i]);
@@ -17,6 +31,13 @@ public abstract class Tile {
 
 	}
 
+	/**
+	 * Whether the specific direction is part of the ArrayList.
+	 *
+	 * @param direction
+	 *            is a specific direction
+	 * @return <code>true</code> if the direction is part of the ArrayList directions
+	 */
 	public boolean isConnectedTo(Direction direction) {
 		for (Direction y : directions) {
 			if (y.equals(direction)) {
@@ -26,8 +47,11 @@ public abstract class Tile {
 		return false;
 	}
 
+	/**
+	 * Rotate the tile clock wise.
+	 */
 	public void rotateClockwise() {
-		
+
 		for (int i = 0; i < directions.size(); i++) {
 			switch (directions.get(i)) {
 			case NORTH:
@@ -49,6 +73,9 @@ public abstract class Tile {
 		}
 	}
 
+	/**
+	 * rotate the tile randomly.
+	 */
 	public void randomlyRotate() {
 		Random rnd = new Random();
 		int randomNumber = rnd.nextInt(4);

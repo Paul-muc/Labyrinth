@@ -1,8 +1,17 @@
 package edu.hm.labyrinth;
 
+/**
+ * Represents a Direction.
+ * @author Paul Seer
+ *
+ */
 public enum Direction {
 	NORTH, EAST, SOUTH, WEST;
-
+	/**
+	 * Get the opposite direction
+	 * 
+	 * @return Returns the new opposite Direction
+	 */
 	public Direction getOppositeDirection() {
 		switch (this) {
 		case NORTH:

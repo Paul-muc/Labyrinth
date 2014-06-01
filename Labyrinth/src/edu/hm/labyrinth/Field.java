@@ -1,17 +1,44 @@
 package edu.hm.labyrinth;
-
+/**
+ * Represents a field with a row, column, magicItem, player and tile.
+ * The class Field implements Compareable<Field>.
+ * 
+ * @author Paul Seer
+ * 
+ */
 public class Field implements Comparable<Field> {
 
-	private final int row;
-	private final int column;
+	/**
+	 * fields position on the board
+	 */
+	private final int row, column;
+	/**
+	 * Magic item on the field
+	 */
 	private MagicItem magicItem;
+	/**
+	 * Player on the field
+	 */
 	private Player player;
+	/**
+	 * Tile on the field
+	 */
 	private Tile tile;
-
+	/**
+	 * Constructs a new field, which is outside of the board, with a specified tile.
+	 * Row and column are -1.
+	 * @param tile
+	 */
 	public Field(Tile tile) {
 		this(tile, -1, -1);
 	}
-
+	/**
+	 * Construct a new field with a specified row, column and tile
+	 * 
+	 * @param tile of the field
+	 * @param row of the field
+	 * @param column of the field
+	 */
 	public Field(Tile tile, int row, int column) {
 		setTile(tile);
 		this.row = row;
@@ -79,6 +106,9 @@ public class Field implements Comparable<Field> {
 		this.magicItem = magicItem;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
 	@Override
 	public int compareTo(Field field) {
 		MagicItem other = field.getMagicItem();

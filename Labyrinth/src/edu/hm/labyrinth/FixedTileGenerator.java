@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+* Represents a fixed tile generator with an ArrayList of tiles.
+ * 
  * @author Paul Seer
  *
  */
@@ -11,11 +13,12 @@ public class FixedTileGenerator implements TileGenerator{
 
 
 	/**
-	 * 
+	 * A ArrayList of tiles.
 	 */
 	List<Tile> tiles = new ArrayList<Tile>();
+	
 	/**
-	 * 
+	 * Constructs a fixed ArrayList of tiles.
 	 */
 	public FixedTileGenerator() {
 		this.tiles = createTiles();
@@ -27,7 +30,7 @@ public class FixedTileGenerator implements TileGenerator{
 	@Override
 	public List<Tile> createTiles() {
 
-		for(int i = 1; i<=TileGenerator.NUMBER_OF_TILES; i++){
+		for(int i = 0; i<TileGenerator.NUMBER_OF_TILES; i++){
 			Tile tri = new Tri();
 			for(int y = i%4; y>0; y--){
 				tri.rotateClockwise();
