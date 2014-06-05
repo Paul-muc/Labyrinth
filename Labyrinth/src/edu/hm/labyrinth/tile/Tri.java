@@ -1,4 +1,6 @@
-package edu.hm.labyrinth;
+package edu.hm.labyrinth.tile;
+
+
 /**
  * Represents a tri.
  * A tri extends from tile.
@@ -13,8 +15,9 @@ public class Tri extends Tile {
 	 */
 	public Tri() {
 		super(
-				new Direction[] { Direction.EAST, Direction.SOUTH,
-						Direction.WEST });
+				new Direction[] {Direction.EAST,
+						Direction.SOUTH,
+						Direction.WEST});
 	}
 
 }

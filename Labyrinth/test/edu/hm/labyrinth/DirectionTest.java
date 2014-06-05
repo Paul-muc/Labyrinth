@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.hm.labyrinth.tile.Direction;
+
 public class DirectionTest {
 
 	Direction north;

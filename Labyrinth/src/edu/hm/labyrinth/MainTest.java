@@ -4,6 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+import edu.hm.labyrinth.board.Field;
+import edu.hm.labyrinth.board.MagicItem;
+import edu.hm.labyrinth.generator.FixedTileGenerator;
+import edu.hm.labyrinth.tile.Direction;
+import edu.hm.labyrinth.tile.Nook;
+import edu.hm.labyrinth.tile.Straight;
+import edu.hm.labyrinth.tile.Tile;
+import edu.hm.labyrinth.tile.Tri;
+
 public class MainTest
 {
 

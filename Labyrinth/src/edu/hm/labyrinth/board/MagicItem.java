@@ -1,4 +1,4 @@
-package edu.hm.labyrinth;
+package edu.hm.labyrinth.board;
 
 /**
  * Represents a magic item with value.
@@ -16,15 +16,17 @@ public class MagicItem {
 	 * Constructs a magic item.
 	 * 
 	 * @param value
-	 *            of the magic item. It's value should be between 1 and 20 or 25.
+	 *            of the magic item. It's value should be between 1 and 20 or
+	 *            25.
 	 */
-	public MagicItem(int value) {
+	public MagicItem(final int value) {
 		if (value == 25) {
 			this.value = value;
 		} else if (value > 0 && value < 21) {
 			this.value = value;
-		} else
+		} else {
 			throw new NullPointerException("Falscher Wert für das magic item.");
+		}
 	}
 
 	/**

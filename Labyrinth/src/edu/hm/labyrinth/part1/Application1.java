@@ -11,10 +11,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import edu.hm.labyrinth.Nook;
-import edu.hm.labyrinth.Straight;
-import edu.hm.labyrinth.Tile;
-import edu.hm.labyrinth.Tri;
+import edu.hm.labyrinth.tile.Nook;
+import edu.hm.labyrinth.tile.Straight;
+import edu.hm.labyrinth.tile.Tile;
+import edu.hm.labyrinth.tile.Tri;
 
 /**
  * GUI-Klasse fuer den ersten Teil der Labyrinth-Aufgabe.

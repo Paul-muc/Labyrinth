@@ -1,4 +1,4 @@
-package edu.hm.labyrinth;
+package edu.hm.labyrinth.tile;
 
 /**
  * Represents a Direction.

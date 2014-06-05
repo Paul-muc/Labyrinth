@@ -11,6 +11,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.hm.labyrinth.generator.FixedTileGenerator;
+import edu.hm.labyrinth.generator.RandomTileGenerator;
+import edu.hm.labyrinth.tile.Tile;
+
 /**
  * @author Paul Seer
  * 
@@ -32,8 +36,8 @@ public class TileGeneratorTest {
 	public void testSize() {
 
 		int size = 34;
-		assertEquals(size, random.tiles.size());
-		assertEquals(size, fixed.tiles.size());
+		assertEquals(size, random.getTiles().size());
+		assertEquals(size, fixed.getTiles().size());
 
 	}
 

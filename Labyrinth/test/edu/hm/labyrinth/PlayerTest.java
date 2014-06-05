@@ -2,9 +2,12 @@ package edu.hm.labyrinth;
 
 import static org.junit.Assert.*;
 
-
 import org.junit.Before;
 import org.junit.Test;
+
+import edu.hm.labyrinth.board.Color;
+import edu.hm.labyrinth.board.MagicItem;
+import edu.hm.labyrinth.board.Player;
 
 public class PlayerTest {
 

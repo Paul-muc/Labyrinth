@@ -1,6 +1,8 @@
-package edu.hm.labyrinth;
+package edu.hm.labyrinth.generator;
 
 import java.util.List;
+
+import edu.hm.labyrinth.tile.Tile;
 
 /**
  * Represents the interface to generate tiles.
@@ -8,16 +10,16 @@ import java.util.List;
  *
  */
 public interface TileGenerator {
-	
+
 	/**
 	 * Standard numbers of tiles is {@value #NUMBER_OF_TILES}.
 	 */
-	public final static int NUMBER_OF_TILES = 34;
+	int NUMBER_OF_TILES = 34;
 	/**
 	 * Create new tiles.
-	 * 
+	 *
 	 * @return a list of tiles.
 	 */
-	public List<Tile> createTiles();
+	List<Tile> createTiles();
 
 }

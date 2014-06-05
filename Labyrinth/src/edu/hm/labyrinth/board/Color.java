@@ -1,4 +1,4 @@
-package edu.hm.labyrinth;
+package edu.hm.labyrinth.board;
 /**
  * Represents the color for the player.
  * 

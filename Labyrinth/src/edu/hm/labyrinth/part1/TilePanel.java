@@ -11,8 +11,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import edu.hm.labyrinth.Direction;
-import edu.hm.labyrinth.Tile;
+import edu.hm.labyrinth.tile.Direction;
+import edu.hm.labyrinth.tile.Tile;
 
 /**
  * Panel to represent a single tile. The tile is displayed as a 3X3 arrangement whose  

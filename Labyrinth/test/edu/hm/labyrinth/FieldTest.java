@@ -8,6 +8,14 @@ import java.util.Collections;
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.hm.labyrinth.board.Color;
+import edu.hm.labyrinth.board.Field;
+import edu.hm.labyrinth.board.MagicItem;
+import edu.hm.labyrinth.board.Player;
+import edu.hm.labyrinth.tile.Nook;
+import edu.hm.labyrinth.tile.Straight;
+import edu.hm.labyrinth.tile.Tri;
+
 public class FieldTest {
 	
 	Field fieldSmallMI;

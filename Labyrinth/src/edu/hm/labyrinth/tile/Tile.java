@@ -1,9 +1,11 @@
-package edu.hm.labyrinth;
+package edu.hm.labyrinth.tile;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
-import edu.hm.labyrinth.Direction;
+import edu.hm.labyrinth.board.Board;
 
 /**
  * Represents an abstract Tile with an ArrayList of directions.
@@ -16,7 +18,7 @@ public abstract class Tile {
 	/**
 	 * The ArrayList of directions.
 	 */
-	ArrayList<Direction> directions = new ArrayList<Direction>();
+	private List<Direction> directions = new ArrayList<Direction>();
 
 	/**
 	 * Constructs a list, containing directions.
@@ -24,21 +26,23 @@ public abstract class Tile {
 	 * @param directions
 	 *            is an array of directions
 	 */
-	protected Tile(Direction... directions) {
-		for (int i = 0; i < directions.length; i++) {
-			this.directions.add(directions[i]);
-		}
+	protected Tile(final Direction... directions) {
+		// for (int i = 0; i < directions.length; i++) {
+		// this.directions.add(directions[i]);
+		// }
+		this.directions = Arrays.asList(directions);
 
 	}
 
 	/**
 	 * Whether the specific direction is part of the ArrayList.
-	 *
+	 * 
 	 * @param direction
 	 *            is a specific direction
-	 * @return <code>true</code> if the direction is part of the ArrayList directions
+	 * @return <code>true</code> if the direction is part of the ArrayList
+	 *         directions
 	 */
-	public boolean isConnectedTo(Direction direction) {
+	public boolean isConnectedTo(final Direction direction) {
 		for (Direction y : directions) {
 			if (y.equals(direction)) {
 				return true;
@@ -98,6 +102,7 @@ public abstract class Tile {
 			output += y.toString() + " ";
 		}
 
-		return output;
+		return output  +" Klasse: " +Board.getClassName(this);
 	}
+
 }

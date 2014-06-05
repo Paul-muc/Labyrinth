@@ -5,6 +5,12 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.hm.labyrinth.tile.Direction;
+import edu.hm.labyrinth.tile.Nook;
+import edu.hm.labyrinth.tile.Straight;
+import edu.hm.labyrinth.tile.Tile;
+import edu.hm.labyrinth.tile.Tri;
+
 public class TileTest {
 
 	Tile nook;

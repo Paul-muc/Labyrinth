@@ -1,7 +1,10 @@
-package edu.hm.labyrinth;
+package edu.hm.labyrinth.board;
+
+import edu.hm.labyrinth.tile.Tile;
+
 /**
- * Represents a field with a row, column, magicItem, player and tile.
- * The class Field implements Compareable<Field>.
+ * Represents a field with a row, column, magicItem, player and tile. The class
+ * Field implements Compareable<Field>.
  * 
  * @author Paul Seer
  * 
@@ -24,22 +27,29 @@ public class Field implements Comparable<Field> {
 	 * Tile on the field
 	 */
 	private Tile tile;
+
 	/**
-	 * Constructs a new field, which is outside of the board, with a specified tile.
-	 * Row and column are -1.
+	 * Constructs a new field, which is outside of the board, with a specified
+	 * tile. Row and column are -1.
+	 * 
 	 * @param tile
+	 *            Tile on the field
 	 */
-	public Field(Tile tile) {
+	public Field(final Tile tile) {
 		this(tile, -1, -1);
 	}
+
 	/**
 	 * Construct a new field with a specified row, column and tile
 	 * 
-	 * @param tile of the field
-	 * @param row of the field
-	 * @param column of the field
+	 * @param tile
+	 *            of the field
+	 * @param row
+	 *            of the field
+	 * @param column
+	 *            of the field
 	 */
-	public Field(Tile tile, int row, int column) {
+	public Field(final Tile tile, final int row, final int column) {
 		setTile(tile);
 		this.row = row;
 		this.column = column;
@@ -59,7 +69,9 @@ public class Field implements Comparable<Field> {
 	 *            the player to set
 	 */
 	public void setPlayer(Player player) {
+		if (this.player == null){
 		this.player = player;
+		}
 	}
 
 	/**
@@ -73,7 +85,7 @@ public class Field implements Comparable<Field> {
 	 * @param tile
 	 *            the tile to set
 	 */
-	public void setTile(Tile tile) {
+	public void setTile(final Tile tile) {
 		this.tile = tile;
 	}
 
@@ -102,31 +114,33 @@ public class Field implements Comparable<Field> {
 	 * @param magicItem
 	 *            the magicItem to set
 	 */
-	public void setMagicItem(MagicItem magicItem) {
+	public void setMagicItem(final MagicItem magicItem) {
 		this.magicItem = magicItem;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	@Override
-	public int compareTo(Field field) {
+	public int compareTo(final Field field) {
 		MagicItem other = field.getMagicItem();
-		
-		//this is null
+
+		// this is null
 		if (this.getMagicItem() == null) {
 			if (other == null) {
 				return 0;
 			} else {
 				return -1;
 			}
-			//other is null and this is not null
+			// other is null and this is not null
 		} else if (other == null) {
 			return 1;
-			//this is lower 
+			// this is lower
 		} else if (this.getMagicItem().getValue() < other.getValue()) {
 			return -1;
-			//other is lower
+			// other is lower
 		} else if (this.getMagicItem().getValue() > other.getValue()) {
 			return 1;
 		}
@@ -141,8 +155,44 @@ public class Field implements Comparable<Field> {
 	 */
 	@Override
 	public String toString() {
-		return "Field [row=" + row + ", column=" + column + ", magicItem="
-				+ magicItem + ", player=" + player + ", tile=" + tile + "]";
+		return "Field [row=" + row + ", column=" + column
+				+ ", tile=" + tile + "]"; //+ ", magicItem=" + magicItem + ", player="
+											//+ player 
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + column;
+		result = prime * result + row;
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Field other = (Field) obj;
+		if (column != other.column)
+			return false;
+		if (row != other.row)
+			return false;
+		return true;
+	}
+
+
+	
+	
 
 }

@@ -1,8 +1,13 @@
-package edu.hm.labyrinth;
+package edu.hm.labyrinth.generator;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import edu.hm.labyrinth.tile.Nook;
+import edu.hm.labyrinth.tile.Straight;
+import edu.hm.labyrinth.tile.Tile;
+import edu.hm.labyrinth.tile.Tri;
 
 /**
  * Represents the random tile generator with an ArrayList of tiles.
@@ -10,12 +15,12 @@ import java.util.List;
  * @author Paul Seer
  *
  */
-public class RandomTileGenerator implements TileGenerator {
+public final class RandomTileGenerator implements TileGenerator {
 
 	/**
 	 * A ArrayList of tiles.
 	 */
-	List<Tile> tiles = new ArrayList<Tile>();
+	private List<Tile> tiles = new ArrayList<Tile>();
 
 	/**
 	 * Constructs a random ArrayList of tiles.
@@ -34,20 +39,20 @@ public class RandomTileGenerator implements TileGenerator {
 		int numberOfStraights = 13;
 		int numberOfNooks = 16;
 		Tile tile;
-		
-		for(int i = 0; i<numberOfTris; i++){
+	
+		for (int i = 0; i < numberOfTris; i++) {
 			tile = new Tri();
 			tile.randomlyRotate();
 			tiles.add(tile);
 		}
-		
-		for(int i = 0; i<numberOfStraights; i++){
+
+		for (int i = 0; i < numberOfStraights; i++) {
 			tile = new Straight();
 			tile.randomlyRotate();
 			tiles.add(tile);
 		}
-		
-		for(int i = 0; i<numberOfNooks; i++){
+
+		for (int i = 0; i < numberOfNooks; i++) {
 			tile = new Nook();
 			tile.randomlyRotate();
 			tiles.add(tile);
@@ -62,5 +67,14 @@ public class RandomTileGenerator implements TileGenerator {
 	public String toString() {
 		return "RandomTileGenerator [tiles=" + tiles + "]";
 	}
+
+	/**
+	 * @return the tiles
+	 */
+	public List<Tile> getTiles() {
+		return tiles;
+	}
+	
+	
 
 }
