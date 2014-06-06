@@ -26,7 +26,7 @@ public final class RandomTileGenerator implements TileGenerator {
 	 * Constructs a random ArrayList of tiles.
 	 */
 	public RandomTileGenerator() {
-		this.tiles = createTiles();
+		
 		Collections.shuffle(tiles);
 	}
 

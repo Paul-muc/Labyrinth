@@ -77,6 +77,7 @@ public class MainTest
 		ArrayList<Field> field = new ArrayList<Field>();
 		field.add(field1);
 		field.add(field2);
+		field.add(new Field(nook));
 		field.add(field3);
 		field.add(field4);
 		

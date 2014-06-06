@@ -132,11 +132,11 @@ public class Field implements Comparable<Field> {
 			if (other == null) {
 				return 0;
 			} else {
-				return -1;
+				return +1;
 			}
 			// other is null and this is not null
 		} else if (other == null) {
-			return 1;
+			return -1;
 			// this is lower
 		} else if (this.getMagicItem().getValue() < other.getValue()) {
 			return -1;
@@ -156,7 +156,7 @@ public class Field implements Comparable<Field> {
 	@Override
 	public String toString() {
 		return "Field [row=" + row + ", column=" + column
-				+ ", tile=" + tile + "]"; //+ ", magicItem=" + magicItem + ", player="
+				+ ", tile=" + tile + "]"+ ", magicItem=" + magicItem ;//+ ", player="
 											//+ player 
 	}
 

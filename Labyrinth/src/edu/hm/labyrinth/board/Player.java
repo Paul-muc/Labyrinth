@@ -39,18 +39,18 @@ public final class Player {
 	/**
 	 * Add a magic item to the ArrayList magicItems.
 	 * 
-	 * @param magicItems
+	 * @param magicItem
 	 */
-	public void addMagicItemFound(final MagicItem magicItems) {
-		this.magicItems.add(magicItems);
+	public void addMagicItemFound(final MagicItem magicItem) {
+		if (magicItem != null) {
+			this.magicItems.add(magicItem);
+		}
 	}
 
 	/**
-	 * Whether the player has a magic wand and
-	 * reduce the value of magic wands.
-	 *
-	 * @return <code>true</code> if the player's value of
-	 * magic wands is higher
+	 * Whether the player has a magic wand and reduce the value of magic wands.
+	 * 
+	 * @return <code>true</code> if the player's value of magic wands is higher
 	 *         than zero.
 	 */
 	public boolean reduceMagicWands() {
@@ -99,7 +99,9 @@ public final class Player {
 				+ ", magicItems=" + magicItems + "]";
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -114,21 +116,23 @@ public final class Player {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		//identität
+		// identität
 		if (this == obj)
 			return true;
-		//null Vergleich
+		// null Vergleich
 		if (obj == null)
-			return false;
-		//selber Typ?
+			throw new NullPointerException();
+		// selber Typ?
 		if (getClass() != obj.getClass())
 			return false;
-		//einzelelne Werte.
+		// einzelelne Werte.
 		Player other = (Player) obj;
 		if (color != other.color)
 			return false;
@@ -144,6 +148,4 @@ public final class Player {
 		return true;
 	}
 
-	
-	
 }
