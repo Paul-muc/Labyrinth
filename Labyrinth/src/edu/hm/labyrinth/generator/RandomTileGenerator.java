@@ -15,7 +15,7 @@ import edu.hm.labyrinth.tile.Tri;
  * @author Paul Seer
  *
  */
-public final class RandomTileGenerator implements TileGenerator {
+public final class RandomTileGenerator implements TileGenerator<Tile> {
 
 	/**
 	 * A ArrayList of tiles.
@@ -26,7 +26,7 @@ public final class RandomTileGenerator implements TileGenerator {
 	 * Constructs a random ArrayList of tiles.
 	 */
 	public RandomTileGenerator() {
-		
+		this.tiles = createTiles();
 		Collections.shuffle(tiles);
 	}
 
@@ -71,10 +71,10 @@ public final class RandomTileGenerator implements TileGenerator {
 	/**
 	 * @return the tiles
 	 */
+	@Override
 	public List<Tile> getTiles() {
 		return tiles;
 	}
-	
-	
+
 
 }

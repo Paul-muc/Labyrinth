@@ -69,7 +69,7 @@ public class Field implements Comparable<Field> {
 	 *            the player to set
 	 */
 	public void setPlayer(Player player) {
-		if (this.player == null){
+		if (this.player == null) {
 		this.player = player;
 		}
 	}
@@ -131,17 +131,21 @@ public class Field implements Comparable<Field> {
 		if (this.getMagicItem() == null) {
 			if (other == null) {
 				return 0;
-			} else {
+			}
+			else {
 				return +1;
 			}
 			// other is null and this is not null
-		} else if (other == null) {
+		}
+		else if (other == null) {
 			return -1;
 			// this is lower
-		} else if (this.getMagicItem().getValue() < other.getValue()) {
+		}
+		else if (this.getMagicItem().getValue() < other.getValue()) {
 			return -1;
 			// other is lower
-		} else if (this.getMagicItem().getValue() > other.getValue()) {
+		}
+		else if (this.getMagicItem().getValue() > other.getValue()) {
 			return 1;
 		}
 
@@ -156,8 +160,8 @@ public class Field implements Comparable<Field> {
 	@Override
 	public String toString() {
 		return "Field [row=" + row + ", column=" + column
-				+ ", tile=" + tile + "]"+ ", magicItem=" + magicItem ;//+ ", player="
-											//+ player 
+				+ ", tile=" + tile + "]" + ", magicItem=" + magicItem;
+		//+ ", player=" + player 
 	}
 
 	/* (non-Javadoc)
@@ -177,22 +181,22 @@ public class Field implements Comparable<Field> {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+	}
 		Field other = (Field) obj;
-		if (column != other.column)
+		if (column != other.column) {
 			return false;
-		if (row != other.row)
+		}
+		if (row != other.row) {
 			return false;
+		}
 		return true;
 	}
-
-
-	
-	
-
 }

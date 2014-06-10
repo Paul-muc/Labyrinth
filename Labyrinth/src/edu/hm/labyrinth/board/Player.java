@@ -10,7 +10,8 @@ import java.util.ArrayList;
  */
 public final class Player {
 	/**
-	 * Players color.
+	 * * Players color.
+	 * 
 	 */
 	private final Color color;
 	/**
@@ -26,14 +27,17 @@ public final class Player {
 	 */
 	private final int magicWandValue = 2;
 
+	private final int numberOfMagicWands = 3;
+
 	/**
 	 * Constructs a new player with a color and 3 magic wands.
 	 * 
 	 * @param color
+	 *            of the Player
 	 */
 	public Player(final Color color) {
 		this.color = color;
-		this.magicWands = 3;
+		this.magicWands = numberOfMagicWands;
 	}
 
 	/**
@@ -57,7 +61,8 @@ public final class Player {
 		if (this.magicWands > 0) {
 			this.magicWands--;
 			return true;
-		} else {
+		}
+		else {
 			return false;
 		}
 	}
@@ -124,27 +129,36 @@ public final class Player {
 	@Override
 	public boolean equals(Object obj) {
 		// identität
-		if (this == obj)
+		if (this == obj) {
 			return true;
+		}
 		// null Vergleich
-		if (obj == null)
+		if (obj == null) {
 			throw new NullPointerException();
+		}
 		// selber Typ?
-		if (getClass() != obj.getClass())
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		// einzelelne Werte.
 		Player other = (Player) obj;
-		if (color != other.color)
+		if (color != other.color) {
 			return false;
+		}
 		if (magicItems == null) {
-			if (other.magicItems != null)
+			if (other.magicItems != null) {
 				return false;
-		} else if (!magicItems.equals(other.magicItems))
+			}
+		}
+		else if (!magicItems.equals(other.magicItems)) {
 			return false;
-		if (magicWandValue != other.magicWandValue)
+		}
+		if (magicWandValue != other.magicWandValue) {
 			return false;
-		if (magicWands != other.magicWands)
+		}
+		if (magicWands != other.magicWands) {
 			return false;
+		}
 		return true;
 	}
 

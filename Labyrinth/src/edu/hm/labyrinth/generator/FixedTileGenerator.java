@@ -12,7 +12,7 @@ import edu.hm.labyrinth.tile.Tri;
  * @author Paul Seer
  *
  */
-public class FixedTileGenerator implements TileGenerator{
+public class FixedTileGenerator implements TileGenerator<Tile>{
 
 
 	/**
@@ -24,7 +24,7 @@ public class FixedTileGenerator implements TileGenerator{
 	 * Constructs a fixed ArrayList of tiles.
 	 */
 	public FixedTileGenerator() {
-		//this.tiles = createTiles();
+		this.tiles = createTiles();
 	}
 
 	/* (non-Javadoc)
@@ -55,6 +55,7 @@ public class FixedTileGenerator implements TileGenerator{
 	/**
 	 * @return the tiles
 	 */
+	@Override
 	public List<Tile> getTiles() {
 		return tiles;
 	}

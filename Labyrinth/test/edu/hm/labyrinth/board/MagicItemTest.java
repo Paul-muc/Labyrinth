@@ -1,4 +1,4 @@
-package edu.hm.labyrinth;
+package edu.hm.labyrinth.board;
 
 import static org.junit.Assert.*;
 

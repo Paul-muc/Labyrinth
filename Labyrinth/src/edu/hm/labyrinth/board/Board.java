@@ -3,14 +3,12 @@ package edu.hm.labyrinth.board;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.function.ToDoubleBiFunction;
 
 import edu.hm.labyrinth.generator.TileGenerator;
+import edu.hm.labyrinth.tile.Direction;
 import edu.hm.labyrinth.tile.Nook;
 import edu.hm.labyrinth.tile.Tile;
 import edu.hm.labyrinth.tile.Tri;
@@ -32,6 +30,7 @@ public class Board {
 	/**
 	 * 
 	 */
+	public static final int MAX_PLAYER = 4;
 	/**
 	 * 
 	 */
@@ -53,12 +52,12 @@ public class Board {
 	 * @param o
 	 */
 	// TODO Java doc
-	public Board(TileGenerator o) {
+	public Board(TileGenerator<Tile> o) {
 		if (o == null) {
 			throw new NullPointerException("tile generator is null.");
 		}
 		List<Tile> tiles = new ArrayList<Tile>();
-		tiles = o.createTiles();
+		tiles = o.getTiles();
 		if (tiles.size() != TileGenerator.NUMBER_OF_TILES) {
 			throw new IllegalArgumentException();
 		}
@@ -76,8 +75,6 @@ public class Board {
 			}
 		}
 		fields.add(new Field(tiles.get(value)));
-		System.out.println();
-		System.out.println(fields.size());
 	}
 
 	/**
@@ -96,7 +93,7 @@ public class Board {
 			tile.rotateClockwise();
 		}
 		final Field field = new Field(tile, row, column);
-		fields.add(field); // new Field(tile, row, column)
+		fields.add(field);
 	}
 
 	/**
@@ -106,14 +103,34 @@ public class Board {
 	private void generateCorners() {
 
 		for (int i = 0; i < NUMBER_OF_CONERS; i++) {
-			if (i == 0) {
-				generateField(0, new Nook(), SIZE - 1, SIZE - 1);
-			} else if (i == 1) {
-				generateField(1, new Nook(), SIZE - 1, 0);
-			} else if (i == 2) {
-				generateField(2, new Nook(), 0, 0);
-			} else {
-				generateField(3, new Nook(), 0, SIZE - 1);
+//			if (i == 0) {
+//				generateField(0, new Nook(), SIZE - 1, SIZE - 1);
+//			}
+//			else if (i == 1) {
+//				generateField(1, new Nook(), SIZE - 1, 0);
+//			}
+//			else if (i == 2) {
+//				generateField(2, new Nook(), 0, 0);
+//			}
+//			else {
+//				generateField(3, new Nook(), 0, SIZE - 1);
+//			}
+			
+			switch (i) {
+			case 0:
+				generateField(i, new Nook(), SIZE - 1, SIZE - 1);
+				break;
+			case 1:
+				generateField(i, new Nook(), SIZE - 1, 0);
+				break;
+			case 2:
+				generateField(i, new Nook(), 0, 0);
+				break;
+			case NUMBER_OF_CONERS - 1:
+				generateField(i, new Nook(), 0, SIZE - 1);
+				break;
+			default:
+				break;
 			}
 		}
 	}
@@ -126,11 +143,14 @@ public class Board {
 		for (int i = 0; i < NUMBER_OF_CONERS; i++) {
 			if (i == 0) {
 				generateField(0, new Tri(), 2, 4);
-			} else if (i == 1) {
+			}
+			else if (i == 1) {
 				generateField(1, new Tri(), 4, 4);
-			} else if (i == 2) {
+			}
+			else if (i == 2) {
 				generateField(2, new Tri(), 4, 2);
-			} else {
+			}
+			else {
 				generateField(3, new Tri(), 2, 2);
 			}
 		}
@@ -215,12 +235,14 @@ public class Board {
 	 * @param players
 	 */
 	// TODO Java doc
-	public void setPlayers(Player... players) {
+	public void addPlayers(Player... players) {
 		if (players.equals(null)) {
 			throw new NullPointerException();
-		} else if (players.length == 0 || players.length > 4) {
+		}
+		else if (players.length == 0 || players.length > MAX_PLAYER) {
 			throw new IllegalArgumentException();
-		} else {
+		}
+		else {
 			for (Player y : players) {
 				switch (y.getColor()) {
 				case BLUE:
@@ -249,10 +271,41 @@ public class Board {
 	 */
 	public Set<Field> getNeighbors(Field field) {
 		TreeSet<Field> fieldTree = new TreeSet<Field>();
-		// TODO TreeSet / HashSet???
-		return null;
+		Direction up = Direction.NORTH;
+		Direction down = Direction.SOUTH;
+		Direction left = Direction.WEST;
+		Direction right = Direction.EAST;
+		
+		if (field.getTile().isConnectedTo(up)) {
+			Field north = getField(field.getRow() - 1, field.getColumn());
+			if (north.getTile().isConnectedTo(up.getOppositeDirection())) {
+				fieldTree.add(north);
+			}
+		}
+		if (field.getTile().isConnectedTo(down)) {
+			Field south = getField(field.getRow() - 1, field.getColumn());
+			if (south.getTile().isConnectedTo(down.getOppositeDirection())) {
+				fieldTree.add(south);
+			}
+		}
+		if (field.getTile().isConnectedTo(left)) {
+			Field west = getField(field.getRow(), field.getColumn() - 1);
+			if (west.getTile().isConnectedTo(left.getOppositeDirection())) {
+				fieldTree.add(west);
+			}
+		}
+		
+		if (field.getTile().isConnectedTo(right)) {
+			Field east = getField(field.getRow(), field.getColumn() + 1);
+			if (east.getTile().isConnectedTo(right.getOppositeDirection())) {
+				fieldTree.add(east);
+			}
 
+		}
+		
+		return fieldTree;
 	}
+	
 
 	/**
 	 * Search for the field with the given Player on it.
@@ -288,7 +341,7 @@ public class Board {
 		return Collections.unmodifiableList(fields);
 	}
 	
-	public Set<Field> reachableSet(Field start){
+	public Set<Field> reachableSet(Field start) {
 		//TODO reachableSet(Field start)
 		return (Set<Field>) start;
 	}

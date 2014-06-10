@@ -1,4 +1,4 @@
-package edu.hm.labyrinth;
+package edu.hm.labyrinth.tile;
 
 import static org.junit.Assert.*;
 
@@ -33,7 +33,7 @@ public class TileTest {
 		assertFalse(nook.isConnectedTo(Direction.SOUTH));
 		assertFalse(nook.isConnectedTo(Direction.EAST));
 
-		// Nook
+		// Straight
 		assertTrue(straight.isConnectedTo(Direction.NORTH));
 		assertTrue(straight.isConnectedTo(Direction.SOUTH));
 		assertFalse(straight.isConnectedTo(Direction.WEST));

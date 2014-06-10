@@ -1,4 +1,4 @@
-package edu.hm.labyrinth;
+package edu.hm.labyrinth.board;
 
 import static org.junit.Assert.*;
 
@@ -83,9 +83,9 @@ public class FieldTest {
 		//sort
 		Collections.sort(field);
 		
-		assertEquals(fieldWithoutMI, field.get(0));
-		assertEquals(fieldSmallMI, field.get(1));
-		assertEquals(fieldHugeMI, field.get(2));
+		assertEquals(fieldWithoutMI, field.get(2));
+		assertEquals(fieldSmallMI, field.get(0));
+		assertEquals(fieldHugeMI, field.get(1));
 		
 	}
 	

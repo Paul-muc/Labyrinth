@@ -9,7 +9,12 @@ import edu.hm.labyrinth.tile.Tile;
  * @author Paul Seer
  *
  */
-public interface TileGenerator {
+/**
+ * @author Paul
+ *
+ * @param <Tile>
+ */
+public interface TileGenerator<T extends Tile> {
 
 	/**
 	 * Standard numbers of tiles is {@value #NUMBER_OF_TILES}.
@@ -20,6 +25,12 @@ public interface TileGenerator {
 	 *
 	 * @return a list of tiles.
 	 */
-	List<Tile> createTiles();
+	List<T> createTiles();
+	/**
+	 * Returns the tiles.
+	 * 
+	 * @return a list of tiles.
+	 */
+	List<T> getTiles();
 
 }

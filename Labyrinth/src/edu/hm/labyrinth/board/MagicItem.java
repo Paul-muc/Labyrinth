@@ -20,11 +20,13 @@ public class MagicItem {
 	 *            25.
 	 */
 	public MagicItem(final int value) {
-		if (value == 25) {
+		if (value == Board.NUMBER_OF_LAST_MAGIC_ITEM) {
 			this.value = value;
-		} else if (value > 0 && value < 21) {
+		}
+		else if (value > 0 && value < Board.NUMBER_OF_CONTIGUOUS_MAGIC_ITEMS + 1) {
 			this.value = value;
-		} else {
+		}
+		else {
 			throw new NullPointerException("Falscher Wert für das magic item.");
 		}
 	}
