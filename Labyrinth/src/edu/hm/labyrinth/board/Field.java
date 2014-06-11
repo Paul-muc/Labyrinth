@@ -82,11 +82,17 @@ public class Field implements Comparable<Field> {
 	}
 
 	/**
+	 *
 	 * @param tile
 	 *            the tile to set
 	 */
 	public void setTile(final Tile tile) {
+		if(getRow()%2 == 0 && getColumn()%2 == 0){
+			throw new IllegalArgumentException();
+		}
+		else {
 		this.tile = tile;
+		}
 	}
 
 	/**
@@ -125,6 +131,9 @@ public class Field implements Comparable<Field> {
 	 */
 	@Override
 	public int compareTo(final Field field) {
+		if(field == null){
+			throw new NullPointerException();
+		}
 		MagicItem other = field.getMagicItem();
 
 		// this is null

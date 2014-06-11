@@ -2,6 +2,7 @@ package edu.hm.labyrinth;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Map;
 import java.util.Random;
 
 import edu.hm.labyrinth.board.Field;

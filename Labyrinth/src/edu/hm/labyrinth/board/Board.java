@@ -14,27 +14,30 @@ import edu.hm.labyrinth.tile.Tile;
 import edu.hm.labyrinth.tile.Tri;
 
 public class Board {
-	// TODO Java doc
 	/**
-	 * 
+	 * Number of last magic item.
 	 */
 	public static final int NUMBER_OF_LAST_MAGIC_ITEM = 25;
 	/**
-	 * 
+	 * Number of contiguous magic items.
 	 */
 	public static final int NUMBER_OF_CONTIGUOUS_MAGIC_ITEMS = 20;
 	/**
-	 * 
+	 * Max row and column size.
 	 */
 	public static final int SIZE = 7;
 	/**
-	 * 
+	 * Maximum value of players.
 	 */
 	public static final int MAX_PLAYER = 4;
 	/**
-	 * 
+	 * Number of corners.
 	 */
 	public static final int NUMBER_OF_CONERS = 4;
+	
+	
+	private static final int middle = 4;
+	
 	/**
 	 * list of fields.
 	 */
@@ -47,9 +50,13 @@ public class Board {
 	 * list of magic items.
 	 */
 	private List<MagicItem> magicitems = new ArrayList<MagicItem>();
+	
+	
+	
 
 	/**
-	 * @param o
+	 * Construct a new Board with a specified tile generator.
+	 * @param o is a tile generator
 	 */
 	// TODO Java doc
 	public Board(TileGenerator<Tile> o) {
@@ -78,6 +85,8 @@ public class Board {
 	}
 
 	/**
+	 * Generate a new field.
+	 * 
 	 * @param rotations
 	 *            number of rotates
 	 * @param tile
@@ -87,19 +96,16 @@ public class Board {
 	 * @param column
 	 *            column
 	 */
-	// TODO Java doc
 	private void generateField(int rotations, Tile tile, int row, int column) {
 		for (int i = 0; i < rotations; i++) {
 			tile.rotateClockwise();
 		}
-		final Field field = new Field(tile, row, column);
-		fields.add(field);
+		fields.add(new Field(tile, row, column));
 	}
 
 	/**
-	 * 
+	 * Generate four fields in the corners.
 	 */
-	// TODO Java doc
 	private void generateCorners() {
 
 		for (int i = 0; i < NUMBER_OF_CONERS; i++) {
@@ -115,7 +121,6 @@ public class Board {
 //			else {
 //				generateField(3, new Nook(), 0, SIZE - 1);
 //			}
-			
 			switch (i) {
 			case 0:
 				generateField(i, new Nook(), SIZE - 1, SIZE - 1);
@@ -136,31 +141,29 @@ public class Board {
 	}
 
 	/**
-	 * 
+	 * Generate the fields in the middle.
 	 */
-	// TODO Java doc
 	private void generateMiddle() {
 		for (int i = 0; i < NUMBER_OF_CONERS; i++) {
 			if (i == 0) {
-				generateField(0, new Tri(), 2, 4);
+				generateField(i, new Tri(), middle - 2, middle);
 			}
 			else if (i == 1) {
-				generateField(1, new Tri(), 4, 4);
+				generateField(i, new Tri(), middle, middle);
 			}
 			else if (i == 2) {
-				generateField(2, new Tri(), 4, 2);
+				generateField(i, new Tri(), middle, middle - 2);
 			}
 			else {
-				generateField(3, new Tri(), 2, 2);
+				generateField(i, new Tri(), middle - 2,middle - 2);
 			}
 		}
 
 	}
 
 	/**
-	 * 
+	 * Generate margin fields.
 	 */
-	// TODO Java doc
 	private void generateMargins() {
 		for (int row = 0; row < SIZE; row++) {
 			for (int column = 0; column < SIZE; column++) {
@@ -209,11 +212,11 @@ public class Board {
 	}
 
 	/**
-	 * @param row
-	 * @param column
-	 * @return
+	 * Need a specific row and column and return the field.
+	 * @param row of the field
+	 * @param column of the field
+	 * @return the field with specific column and row value
 	 */
-	// TODO Java doc
 	public Field getField(int row, int column) {
 		for (Field y : fields) {
 			if (y.getRow() == row && y.getColumn() == column) {
@@ -224,17 +227,17 @@ public class Board {
 	}
 
 	/**
-	 * @return
+	 * Get the free tile.
+	 * @return free tile
 	 */
-	// TODO Java doc
 	public Tile getFreeTile() {
 		return getField(-1, -1).getTile();
 	}
 
 	/**
-	 * @param players
+	 * Generate players on the board. Max amount of players is four.
+	 * @param players is an array of players.
 	 */
-	// TODO Java doc
 	public void addPlayers(Player... players) {
 		if (players.equals(null)) {
 			throw new NullPointerException();
@@ -266,11 +269,12 @@ public class Board {
 	}
 
 	/**
-	 * @param field
-	 * @return
+	 * Get the neighbors of the field, which are reachable.
+	 * @param field 
+	 * @return the reachable neighbors of the field as a TreeSet.
 	 */
 	public Set<Field> getNeighbors(Field field) {
-		TreeSet<Field> fieldTree = new TreeSet<Field>();
+		TreeSet<Field> fieldTree = new TreeSet<>();
 		Direction up = Direction.NORTH;
 		Direction down = Direction.SOUTH;
 		Direction left = Direction.WEST;
@@ -342,7 +346,12 @@ public class Board {
 	}
 	
 	public Set<Field> reachableSet(Field start) {
-		//TODO reachableSet(Field start)
+		TreeSet<Field> fieldTree = new TreeSet<>();
+		for(Field d: getNeighbors(start)){
+			fieldTree.add(start);
+			
+		}
+
 		return (Set<Field>) start;
 	}
 	
